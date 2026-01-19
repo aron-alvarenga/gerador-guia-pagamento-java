@@ -153,6 +153,12 @@ Este sistema foi desenvolvido para **fins de teste técnico** com dados fictíci
 
 </div>
 
+## Novo Direcionamento
+* **Validações robustas** (campos, formatos, cálculos), testes automatizados para DV/CRC.
+* **Arquitetura de geração**: separar “modelo → render → export”.
+* **Assinatura/segurança** (mesmo que mock): impedir alteração sem regenerar.
+* **Empacotamento**: gerar instalador ou jar “one-click”.
+
 ## 📝 Licença
 
 Este projeto foi desenvolvido para fins educacionais e de demonstração técnica.
