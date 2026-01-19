@@ -19,7 +19,7 @@ Um sistema desktop Java para geração de guias de pagamento com código de barr
 ## 🚀 Como Executar
 
 ### Pré-requisitos
-- Java 8 ou superior
+- Java 21 ou superior
 - Maven 3.6 ou superior
 
 ### Passos para execução
