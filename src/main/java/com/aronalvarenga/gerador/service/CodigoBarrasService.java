@@ -18,22 +18,20 @@ public class CodigoBarrasService {
      */
     public String gerarCodigoBarras(GuiaPagamento guia) {
 
-        StringBuilder codigo = new StringBuilder();
-
-        codigo.append(BANCO_CODIGO);
-
-        codigo.append(MOEDA_CODIGO);
-
         String fatorVencimento = calcularFatorVencimento(guia.getVencimento());
 
         String valorFormatado = formatarValor(guia.getValor());
 
         String campoLivre = gerarCampoLivre(guia);
 
+        // Monta o código sem DV para calcular o dígito verificador
+        // Estrutura: banco (3) + moeda (1) + fator (4) + valor (10) + campo livre (25) = 43 dígitos
         String codigoSemDV = BANCO_CODIGO + MOEDA_CODIGO + fatorVencimento + valorFormatado + campoLivre;
 
         int digitoVerificador = calcularDigitoVerificador(codigoSemDV);
 
+        // Monta o código completo: banco (3) + moeda (1) + DV (1) + fator (4) + valor (10) + campo livre (25) = 44 dígitos
+        StringBuilder codigo = new StringBuilder();
         codigo.append(BANCO_CODIGO)
                 .append(MOEDA_CODIGO)
                 .append(digitoVerificador)

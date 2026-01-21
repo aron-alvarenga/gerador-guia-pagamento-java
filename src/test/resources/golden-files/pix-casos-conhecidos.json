@@ -1,0 +1,110 @@
+{
+  "descricao": "Casos conhecidos (golden files) para validação de QR Code PIX com CRC16 do payload EMV",
+  "casos": [
+    {
+      "id": "caso-pix-001",
+      "descricao": "Caso básico - CPF como chave PIX",
+      "entrada": {
+        "nomeProprietario": "JOAO SILVA",
+        "cpf": "12345678901",
+        "endereco": "Rua Teste, 123 - Centro - Campo Grande/MS",
+        "chavePix": "12345678901",
+        "valor": "100.50",
+        "descricao": "Teste",
+        "vencimento": "2024-01-15",
+        "numeroGuia": "1234567890"
+      },
+      "validacoes": {
+        "crc16Valido": true,
+        "contemPayloadFormatIndicator": true,
+        "contemMerchantAccountInfo": true,
+        "contemCRC16": true
+      }
+    },
+    {
+      "id": "caso-pix-002",
+      "descricao": "Caso com email como chave PIX",
+      "entrada": {
+        "nomeProprietario": "MARIA SANTOS",
+        "cpf": "98765432100",
+        "endereco": "Av. Principal, 456 - Jardim - São Paulo/SP",
+        "chavePix": "maria.santos@email.com",
+        "valor": "250.75",
+        "descricao": "Pagamento",
+        "vencimento": "2024-03-20",
+        "numeroGuia": "9876543210"
+      },
+      "validacoes": {
+        "crc16Valido": true,
+        "contemPayloadFormatIndicator": true,
+        "contemMerchantAccountInfo": true,
+        "contemCRC16": true
+      }
+    },
+    {
+      "id": "caso-pix-003",
+      "descricao": "Caso com chave aleatória (UUID)",
+      "entrada": {
+        "nomeProprietario": "PEDRO COSTA",
+        "cpf": "11122233344",
+        "endereco": "Rua Pequena, 1 - Bairro - Rio de Janeiro/RJ",
+        "chavePix": "550e8400-e29b-41d4-a716-446655440000",
+        "valor": "50.00",
+        "descricao": "Teste UUID",
+        "vencimento": "2024-06-01",
+        "numeroGuia": "1111111111"
+      },
+      "validacoes": {
+        "crc16Valido": true,
+        "contemPayloadFormatIndicator": true,
+        "contemMerchantAccountInfo": true,
+        "contemCRC16": true
+      }
+    },
+    {
+      "id": "caso-pix-004",
+      "descricao": "Caso com telefone como chave PIX",
+      "entrada": {
+        "nomeProprietario": "ANA OLIVEIRA",
+        "cpf": "55566677788",
+        "endereco": "Av. Grande, 9999 - Centro - Belo Horizonte/MG",
+        "chavePix": "+5511999999999",
+        "valor": "0.01",
+        "descricao": "Valor mínimo",
+        "vencimento": "2024-12-31",
+        "numeroGuia": "9999999999"
+      },
+      "validacoes": {
+        "crc16Valido": true,
+        "contemPayloadFormatIndicator": true,
+        "contemMerchantAccountInfo": true,
+        "contemCRC16": true
+      }
+    },
+    {
+      "id": "caso-pix-005",
+      "descricao": "Caso com CNPJ como chave PIX",
+      "entrada": {
+        "nomeProprietario": "EMPRESA LTDA",
+        "cpf": "12345678000190",
+        "endereco": "Rua Comercial, 1000 - Centro - São Paulo/SP",
+        "chavePix": "12345678000190",
+        "valor": "1000.00",
+        "descricao": "Pagamento empresa",
+        "vencimento": "2024-07-15",
+        "numeroGuia": "1234567890"
+      },
+      "validacoes": {
+        "crc16Valido": true,
+        "contemPayloadFormatIndicator": true,
+        "contemMerchantAccountInfo": true,
+        "contemCRC16": true
+      }
+    }
+  ],
+  "notas": {
+    "crc16": "CRC16-CCITT (polinômio 0x8408) conforme padrão EMV",
+    "payload": "Payload deve seguir o padrão EMV para QR Code PIX",
+    "validacao": "CRC16 deve ser calculado sobre o payload completo incluindo o campo '6304'"
+  }
+}

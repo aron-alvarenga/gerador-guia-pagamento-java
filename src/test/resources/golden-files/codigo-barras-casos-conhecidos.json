@@ -1,0 +1,86 @@
+{
+  "descricao": "Casos conhecidos (golden files) para validação de código de barras com DV FEBRABAN",
+  "dataBase": "1997-10-07",
+  "casos": [
+    {
+      "id": "caso-001",
+      "descricao": "Caso básico - valor padrão",
+      "entrada": {
+        "nomeProprietario": "JOAO SILVA",
+        "cpf": "12345678901",
+        "endereco": "Rua Teste, 123 - Centro - Campo Grande/MS",
+        "chavePix": "12345678901",
+        "valor": "100.50",
+        "descricao": "Teste",
+        "vencimento": "2024-01-15",
+        "numeroGuia": "1234567890"
+      },
+      "validacoes": {
+        "tamanhoCodigoBarras": 44,
+        "codigoBanco": "001",
+        "codigoMoeda": "9",
+        "dvValido": true
+      }
+    },
+    {
+      "id": "caso-002",
+      "descricao": "Caso com valor alto",
+      "entrada": {
+        "nomeProprietario": "MARIA SANTOS",
+        "cpf": "98765432100",
+        "endereco": "Av. Principal, 456 - Jardim - São Paulo/SP",
+        "chavePix": "98765432100",
+        "valor": "999999.99",
+        "descricao": "Valor máximo",
+        "vencimento": "2024-12-31",
+        "numeroGuia": "9999999999"
+      },
+      "validacoes": {
+        "tamanhoCodigoBarras": 44,
+        "codigoBanco": "001",
+        "codigoMoeda": "9",
+        "dvValido": true
+      }
+    },
+    {
+      "id": "caso-003",
+      "descricao": "Caso com valor mínimo",
+      "entrada": {
+        "nomeProprietario": "PEDRO COSTA",
+        "cpf": "11122233344",
+        "endereco": "Rua Pequena, 1 - Bairro - Rio de Janeiro/RJ",
+        "chavePix": "11122233344",
+        "valor": "0.01",
+        "descricao": "Taxa mínima",
+        "vencimento": "2024-06-01",
+        "numeroGuia": "1111111111"
+      },
+      "validacoes": {
+        "tamanhoCodigoBarras": 44,
+        "codigoBanco": "001",
+        "codigoMoeda": "9",
+        "dvValido": true
+      }
+    },
+    {
+      "id": "caso-004",
+      "descricao": "Caso com vencimento próximo à data base",
+      "entrada": {
+        "nomeProprietario": "ANA OLIVEIRA",
+        "cpf": "55566677788",
+        "endereco": "Av. Grande, 9999 - Centro - Belo Horizonte/MG",
+        "chavePix": "55566677788",
+        "valor": "250.75",
+        "descricao": "Vencimento próximo",
+        "vencimento": "1997-10-08",
+        "numeroGuia": "5555555555"
+      },
+      "validacoes": {
+        "tamanhoCodigoBarras": 44,
+        "codigoBanco": "001",
+        "codigoMoeda": "9",
+        "dvValido": true
+      }
+    }
+  ]
+}
